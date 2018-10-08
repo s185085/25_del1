@@ -6,8 +6,7 @@ public class Main {
                 "\nIf the player rolls two similar dice, they get an extra turn.\nAfter each throw, the sum of the dice are added to the players " +
                 "total amount of points.\nThe other player gets to roll once the current player rolls two different dice.\nIf a player rolls two 1's, " +
                 "it results in their total score being set to 0.\nThe first player to reach a score of 40 points or more, wins." +
-                "\n------------------------------------------------------------------------------------------" +
-                "\n\nPress a key to start the game.\n\n");
+                "\n------------------------------------------------------------------------------------------\n\n");
         Game diceGame = new Game();
         diceGame.play();
     }

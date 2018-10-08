@@ -22,26 +22,26 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
 
         while(currentPlayer.getScore() < 40){
-            System.out.println("It is " + currentPlayer.getName() + "s turn. Type 1 to roll the die ");
+            System.out.println(currentPlayer.getName() + " with " + currentPlayer.getScore() + " Points:\nType 1 to roll the dice\n");
             int i = scanner.nextInt();
             if(i == 1){
                 sumDie1 = die1.rollDie();
                 sumDie2 = die2.rollDie();
                 sumOfDice = sumDie1 + sumDie2;
-                System.out.println(currentPlayer.getName() + " Rolled " + sumDie1 + " and " + sumDie2 + " for a total sum of " + sumOfDice);
+                System.out.println(currentPlayer.getName() + " Rolled a [" + sumDie1 + "] and a [" + sumDie2 + "] for a total sum of " + sumOfDice);
 
 
 
                 currentPlayer.updateScore(sumOfDice);
 
                 if(sumDie1 == 1 && sumDie2 == 1){
-                    currentPlayer.updateScore(0);
+                    currentPlayer.setScore(0);
                     System.out.println("You rolled two 1's and your score is set to 0 :/");
                 }
 
 
 
-                System.out.println(currentPlayer.getName() + " now has " + currentPlayer.getScore() + " points");
+                System.out.println(currentPlayer.getName() + " now has " + currentPlayer.getScore() + " points\n");
 
                 if(currentPlayer.getScore() >= 40){
                     System.out.println(currentPlayer.getName() + " wins");
