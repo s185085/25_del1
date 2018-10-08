@@ -16,34 +16,59 @@ public class Game {
     }
 
     public void play(){
-        Scanner input = new Scanner(System.in);
+        int sumDie1;
+        int sumDie2;
         int sumOfDice;
-        int sumOfDie1;
-        int sumOfDie2;
-        int currentScore;
-        String winner = "";
+        Scanner scanner = new Scanner(System.in);
 
-        while (currentPlayer.getScore() < 40){
-            System.out.println("It is " + currentPlayer.getName() + "'s turn.");
-            sumOfDie1 = die1.rollDie();
-            sumOfDie2 = die2.rollDie();
-            sumOfDice = sumOfDie1 + sumOfDie2;
-            currentScore = currentPlayer.getScore();
-            currentPlayer.setScore(currentScore + sumOfDice);
+        while(currentPlayer.getScore() < 40){
+            System.out.println("It is " + currentPlayer.getName() + "s turn. Type 1 to roll the die ");
+            int i = scanner.nextInt();
+            if(i == 1){
+                sumDie1 = die1.rollDie();
+                sumDie2 = die2.rollDie();
+                sumOfDice = sumDie1 + sumDie2;
+                System.out.println(currentPlayer.getName() + " Rolled " + sumDie1 + " and " + sumDie2 + " for a total sum of " + sumOfDice);
 
-            System.out.println(currentPlayer.getScore());
-            if (currentPlayer.getScore()>=40){
-                winner = currentPlayer.getName();
-                break;
-            }
 
-            if(currentPlayer == player1){
-                currentPlayer = player2;
+
+                currentPlayer.updateScore(sumOfDice);
+
+                if(sumDie1 == 1 && sumDie2 == 1){
+                    currentPlayer.updateScore(0);
+                    System.out.println("You rolled two 1's and your score is set to 0 :/");
+                }
+
+
+
+                System.out.println(currentPlayer.getName() + " now has " + currentPlayer.getScore() + " points");
+
+                if(currentPlayer.getScore() >= 40){
+                    System.out.println(currentPlayer.getName() + " wins");
+
+                    break;
+                }
+
+                if(currentPlayer == player1){
+                    currentPlayer = player2;
+                } else {
+                    currentPlayer = player1;
+                }
+
+                if(sumDie1 == sumDie2){
+                    if(currentPlayer == player1){
+                        currentPlayer = player2;
+                    } else {
+                        currentPlayer = player1;
+                    }
+                    System.out.println(currentPlayer.getName() + " gets an ekstra turn");
+                }
+
+
             } else {
-                currentPlayer = player1;
+                System.out.println("Thats not a valid input");
             }
         }
-        System.out.println("Game over! " + winner + " wins!");
-        input.close();
     }
 }
+

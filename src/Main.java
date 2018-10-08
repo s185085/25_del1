@@ -1,13 +1,13 @@
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Velkommen til terningespillet!\n------------------------------------Regler:-----------------------------------------------" +
-                "\nThere are two players.\nPlayer 1 throws two dice." +
-                "\nHvis vedkommende slår dobbelt må de slå igen.\nEfter hvert terningkast, bliver terningerne lagt til spillerens " +
-                "totale point.\nNår spiller 1 slår 2 forskellige terninger er der spiller 2s tur.\nHvis en af spillerne slår to 1'ere, " +
-                "bliver deres totale mængde point sat tilbage til 0.\nDen første spiller, som når til 40 point, har vundet." +
-                "\n-------------------------------------------------------------------------------------------" +
-                "\n\nTryk en tast for at starte.");
+        System.out.println("Welcome to the Dice Game!\n------------------------------------Rules:-----------------------------------------------" +
+                "\nThere are two players in the game.\nThe game is turn based, and Player 1 gets to start.\nThe current player rolls two dice each turn." +
+                "\nIf the player rolls two similar dice, they get an extra turn.\nAfter each throw, the sum of the dice are added to the players " +
+                "total amount of points.\nThe other player gets to roll once the current player rolls two different dice.\nIf a player rolls two 1's, " +
+                "it results in their total score being set to 0.\nThe first player to reach a score of 40 points or more, wins." +
+                "\n------------------------------------------------------------------------------------------" +
+                "\n\nPress a key to start the game.\n\n");
         Game diceGame = new Game();
         diceGame.play();
     }
